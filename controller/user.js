@@ -13,8 +13,14 @@ exports.login = async (req, res, next) => {
 // 用户注册
 exports.register = async (req, res, next) => {
   try {
-    // 处理请求
-    res.send("post  /users");
+    //1.获取请求体数据
+    console.log(req.body);
+    //2.数据验证
+    // 基本数据验证
+    // 业务数据验证
+    //3.验证通过保存到数据库
+    //4.发送成功响应
+    res.send("register");
   } catch (error) {
     next(error);
   }
