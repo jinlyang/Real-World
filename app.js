@@ -4,7 +4,7 @@ const cors = require("cors");
 const router = require("./router");
 const errorhandle = require("./mideddleware/errorhandle")
 const app = express();
-
+require("./model")
 // 日志输出
 app.use(morgan("dev"));
 
