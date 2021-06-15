@@ -1,4 +1,5 @@
 const { json } = require("express");
+const { User } = require("../model");
 
 // 用户登录
 exports.login = async (req, res, next) => {
@@ -19,8 +20,13 @@ exports.register = async (req, res, next) => {
     // 基本数据验证
     // 业务数据验证
     //3.验证通过保存到数据库
+    const user = new User(req.body.user);
+    //  保存到数据库
+    await user.save();
     //4.发送成功响应
-    res.send("register");
+    res.status(201).json({
+      user
+    });
   } catch (error) {
     next(error);
   }
